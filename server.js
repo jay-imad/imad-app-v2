@@ -29,7 +29,7 @@ app.get('/ui/madi.png', function (req, res) {
 });
 
 var names =[];
-app.get('/submit-name/:name', function (req, res) { //URL: /submit-name?name = xxxxx
+app.get('/submit-name', function (req, res) { //URL: /submit-name?name = xxxxx
    //Get the name from the request object
    var name = req.query.name;
    
