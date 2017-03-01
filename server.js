@@ -8,7 +8,7 @@ var config = {
   user: 'jay-imad',
   database: 'jay-imad',
   port: '5432',
-  password: process.env.PGPASSWORD ,
+  password: process.env.DB_PASSWORD
 };
 
 var app = express();
