@@ -138,6 +138,11 @@ app.get('/check-login', function(req,res){
     }
 });
 
+app.get('/logout', function(req,res){
+    delete req.session.auth;
+    res.send('logged out');
+});
+
 app.get('/test-db', function(req,res){
     //make a select request
     //return a response with the results
@@ -149,6 +154,8 @@ app.get('/test-db', function(req,res){
         }
     });
 });
+
+
 
 app.get('/articles/:articleName', function(req,res) {
     //articleName =  article-one
