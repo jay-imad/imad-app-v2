@@ -93,9 +93,7 @@ app.post('/create-user', function(req,res){
 });
 
 app.post('/login', function(req,res){
-   //username, password
-   //JSON
-   //{username: "jay", password: "password"}
+ 
    var username = req.body.username;
    var password = req.body.password;
    
@@ -104,7 +102,7 @@ app.post('/login', function(req,res){
             res.status(500).send(err.toString());
         } else{
             if (result.rows === 0) {
-               res.send(403).send('Username / password is invalid ');
+               res.status(403).send('Username / password is invalid ');
            } else {
                //Match the password
                var dbString = result.rows[0].password;
