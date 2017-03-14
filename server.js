@@ -9,7 +9,7 @@ var config = {
   user: 'jay-imad',
   database: 'jay-imad',
   port: '5432',
-  password: process.env.DB_PASSWORD
+  password: 'db-jay-imad-4647'
 };
 
 var pool = new Pool(config);
