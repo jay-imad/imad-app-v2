@@ -12,6 +12,7 @@ var config = {
   password: process.env.DB_PASSWORD
 };
 
+var pool = new Pool(config);
 var app = express();
 app.use(morgan('combined'));
 
@@ -81,7 +82,7 @@ app.post('/create-user', function(req,res){
    var password = req.body.password;
    var salt = crypto.randomBytes(128).toString('hex');
    var dbString = hash(password, salt);
-   pool.query('INSERT INTO "user" (username, password) VALUES ($1,$2)', [username, dbString], function (err, result){
+   pool.query('INSERT INTO "user" (username, password) VALUES ($1, $2)', [username, dbString], function (err, result){
        if(err) {
             res.status(500).send(err.toString());
         } else{
@@ -90,7 +91,7 @@ app.post('/create-user', function(req,res){
    });
 });
 
-var pool = new Pool(config);
+
 app.get('/test-db', function(req,res){
     //make a select request
     //return a response with the results
