@@ -134,7 +134,7 @@ app.get('/check-login', function(req,res){
     if (req.session && req.session.auth && req.session.auth.userId){
         res.send('you are logged in: ', + req.session.auth.userId.toString());
     } else {
-        res.send(403).send('username / password is invalid');
+        res.send('You are not logged in');
     }
 });
 
