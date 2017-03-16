@@ -123,7 +123,7 @@ app.post('/login', function (req, res) {
                 res.send('credentials correct!');
                 
               } else {
-                res.status(403).send('username/password is invalid');
+                res.status(403).json('username/password is invalid');
               }
           }
       }
